@@ -1,16 +1,15 @@
-import Chat from "../components/Chat"
-import Sidebar from "../components/Sidebar"
-import { ChatProvider } from "../context/ChatContext"
+import Chat from "../components/Chat";
+import Sidebar from "../components/Sidebar";
+import { useChat } from "../context/ChatContext.jsx";
 
-const Messages = () => {
+export default function Message() {
+  const { selectedUser } = useChat();
+
   return (
-    <ChatProvider>
-      <div className="app">
-        <Sidebar />
-        <Chat />
-      </div>
-    </ChatProvider>
-  )
+    // ✅ Si hay usuario seleccionado, activa la clase show-chat
+    <div className={`app ${selectedUser ? "show-chat" : ""}`}>
+      <Sidebar />
+      <Chat />
+    </div>
+  );
 }
-
-export { Messages }
