@@ -16,7 +16,7 @@ export default function ConfigPopup() {
       </button>
 
       {isOpen && (
-        <div className={popup ${theme} show}>
+        <div className={`popup ${theme} show`}>
           <h2>{t.settings}</h2>
 
           <button onClick={toggleTheme} className="toggle-theme">
