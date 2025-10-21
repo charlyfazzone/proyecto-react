@@ -1,10 +1,10 @@
-import { Navigate } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = () => {
   console.log("Hola desde protected")
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true"
 
-  return isLoggedIn ? children : <Navigate to="/" replace />
+  return isLoggedIn ? <Outlet /> : <Navigate to="/" replace />
 }
 
 export default ProtectedRoute
